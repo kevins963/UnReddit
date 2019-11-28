@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using Refit;
 using System.Text;
 using System.Threading.Tasks;
+using UnReddit.RedditApi;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 

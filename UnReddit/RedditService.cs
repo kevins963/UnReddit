@@ -93,7 +93,7 @@ namespace UnReddit
 
         async Task<string> Authorize()
         {
-            var authUri = new Uri("https://www.reddit.com/api/v1/authorize.compact?client_id=zGM8I2QfAiJYPA&response_type=code&state=1234567890&redirect_uri=http://127.0.0.1:12345&duration=permanent&scope=*");
+            var authUri = new Uri("https://www.reddit.com/api/v1/authorize.compact?client_id=&response_type=code&state=1234567890&redirect_uri=http://127.0.0.1:12345&duration=permanent&scope=*");
 
             var redirectUri = new Uri("http://127.0.0.1:12345");
             var result = await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.None, authUri, redirectUri);
@@ -120,7 +120,7 @@ namespace UnReddit
             builder.Query = httpParams.ToString();
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, builder.Uri);
-            request.Headers.Authorization = new Windows.Web.Http.Headers.HttpCredentialsHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes("zGM8I2QfAiJYPA:")));
+            request.Headers.Authorization = new Windows.Web.Http.Headers.HttpCredentialsHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes(":")));
             request.Headers.UserAgent.ParseAdd("MyRedditApp/1.0.0");
 
             var result = await mHttpClient.SendRequestAsync(request);
@@ -155,7 +155,7 @@ namespace UnReddit
             builder.Query = httpParams.ToString();
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, builder.Uri);
-            request.Headers.Authorization = new Windows.Web.Http.Headers.HttpCredentialsHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes("zGM8I2QfAiJYPA:")));
+            request.Headers.Authorization = new Windows.Web.Http.Headers.HttpCredentialsHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes(":")));
             request.Headers.UserAgent.ParseAdd("MyRedditApp/1.0.0");
 
             var result = await mHttpClient.SendRequestAsync(request);
