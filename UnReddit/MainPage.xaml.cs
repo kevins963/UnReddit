@@ -16,6 +16,7 @@ using Refit;
 using System.Text;
 using System.Threading.Tasks;
 using UnReddit.RedditApi;
+using UnReddit.Services;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -26,7 +27,7 @@ namespace UnReddit
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private RedditService mRedditService = new RedditService();
+        private RedditService mRedditService = new RedditService("zGM8I2QfAiJYPA", "http://127.0.0.1:12345");
         private IRedditApi mRedditApi = null;
         public MainPage()
         {
@@ -40,7 +41,7 @@ namespace UnReddit
                     var result = Convert.ToBase64String(Encoding.ASCII.GetBytes(token));
                     return await Task.FromResult(token);
                 },
-                
+
             }); ;
         }
 
