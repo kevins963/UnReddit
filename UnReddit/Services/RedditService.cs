@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace UnReddit.Services
 {
-    class RedditService
+    public class RedditService
     {
         private readonly HttpClient mHttpClient;
         private readonly AuthenticationManager mAuthenticationManager;
@@ -83,7 +83,7 @@ namespace UnReddit.Services
             builder.Query = httpParams.ToString();
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, builder.Uri);
-            request.Headers.Authorization = new HttpCredentialsHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes("zGM8I2QfAiJYPA:")));
+            request.Headers.Authorization = new HttpCredentialsHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes(":")));
             request.Headers.UserAgent.ParseAdd("MyRedditApp/1.0.0");
 
             var result = await mHttpClient.SendRequestAsync(request);
@@ -115,7 +115,7 @@ namespace UnReddit.Services
             builder.Query = httpParams.ToString();
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, builder.Uri);
-            request.Headers.Authorization = new HttpCredentialsHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes("zGM8I2QfAiJYPA:")));
+            request.Headers.Authorization = new HttpCredentialsHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes(":")));
             request.Headers.UserAgent.ParseAdd("MyRedditApp/1.0.0");
 
             var result = await mHttpClient.SendRequestAsync(request);

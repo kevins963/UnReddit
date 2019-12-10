@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UnReddit.Services
 {
-    class AuthenticationManager
+    public class AuthenticationManager
     {
         private const string StorageKeyAccessRefreshToken = "reddit_access_refesh_token";
 

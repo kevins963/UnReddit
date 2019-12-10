@@ -9,7 +9,7 @@ namespace UnReddit.RedditApi
         "User-Agent: MyRedditApp / 1.0.0",
         "Authorization: bearer"
         })]
-    interface IRedditApi
+    public interface IRedditApi
     {
         [Get("/api/v1/me")]
         Task<UserId> GetMe();

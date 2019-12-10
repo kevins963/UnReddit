@@ -2,7 +2,7 @@
 
 namespace UnReddit.RedditApi
 {
-    class AuthTokenRequest
+    public class AuthTokenRequest
     {
         [JsonProperty("access_token")]
         public string AccessToken { get; set; }

@@ -2,9 +2,9 @@
 
 namespace UnReddit.RedditApi
 {
-    class UserId
+    public class UserId
     {
         [JsonProperty("id")]
-        public string ID;
+        public string ID { get; set; }
     }
 }
