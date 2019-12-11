@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Generated\AppConfigData.cs" />
     <Compile Include="MyApp.cs" />
     <Compile Include="RedditApi\IRedditApi.cs" />
     <Compile Include="Views\TestView.xaml.cs">
