@@ -15,7 +15,7 @@ namespace UnReddit
     {
         public override void Initialize()
         {
-            Mvx.IoCProvider.RegisterSingleton(() => new RedditService("", "http://127.0.0.1:12345"));
+            Mvx.IoCProvider.RegisterSingleton(() => new RedditService(AppConfigData.REDDIT_API_KEY, AppConfigData.REDDIT_API_REDIRECT_URL));
 
             Mvx.IoCProvider.RegisterSingleton<IRedditApi>(() => RestService.For<IRedditApi>("https://oauth.reddit.com", new RefitSettings()
             {
@@ -32,5 +32,5 @@ namespace UnReddit
             RegisterAppStart<TestViewModel>();
         }
     }
-    
+
 }

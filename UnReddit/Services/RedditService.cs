@@ -79,11 +79,11 @@ namespace UnReddit.Services
             var httpParams = System.Web.HttpUtility.ParseQueryString(builder.Query);
             httpParams["grant_type"] = "authorization_code";
             httpParams["code"] = authCode;
-            httpParams["redirect_uri"] = "http://127.0.0.1:12345";
+            httpParams["redirect_uri"] = mRedirectUrl;
             builder.Query = httpParams.ToString();
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, builder.Uri);
-            request.Headers.Authorization = new HttpCredentialsHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes(":")));
+            request.Headers.Authorization = new HttpCredentialsHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes(mClientId + ":")));
             request.Headers.UserAgent.ParseAdd("MyRedditApp/1.0.0");
 
             var result = await mHttpClient.SendRequestAsync(request);
@@ -115,7 +115,7 @@ namespace UnReddit.Services
             builder.Query = httpParams.ToString();
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, builder.Uri);
-            request.Headers.Authorization = new HttpCredentialsHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes(":")));
+            request.Headers.Authorization = new HttpCredentialsHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes(mClientId + ":")));
             request.Headers.UserAgent.ParseAdd("MyRedditApp/1.0.0");
 
             var result = await mHttpClient.SendRequestAsync(request);
