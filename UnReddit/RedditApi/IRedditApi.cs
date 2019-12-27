@@ -14,5 +14,14 @@ namespace UnReddit.RedditApi
         [Get("/api/v1/me")]
         Task<UserId> GetMe();
 
+
+        [Get("/api/v1/me/karma")]
+        Task<string> GetMeKarma();
+
+        [Get("/api/v1/me/prefs")]
+        Task<string> GetMePrefs();
+
+        [Patch("/api/v1/me/prefs")]
+        Task<string> SetMePrefs(/*prefs*/);
     }
 }
